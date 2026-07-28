@@ -1,0 +1,199 @@
+/* Koko sovelluksen jaetut muuttujat */
+:root {
+  /* Perusvärit */
+  --vari-korostus: #22c55e;
+  --vari-korostus-tumma: #16a34a;
+  --vari-korostus-vaalea: #4ade80;
+  --vari-toissijainen: #38bdf8;
+
+  /* Tekstivärit */
+  --vari-teksti: #f8fafc;
+  --vari-teksti-himmea: #cbd5e1;
+  --vari-teksti-harmaa: #94a3b8;
+  --vari-teksti-vaimea: #64748b;
+
+  /* Virhe- ja vaaravärit */
+  --vari-vaara: #fca5a5;
+
+  /* Pinnat, läpikuultavat valkoiset */
+  --pinta-heikko: rgba(255, 255, 255, 0.03);
+  --pinta-01: rgba(255, 255, 255, 0.04);
+  --pinta-02: rgba(255, 255, 255, 0.05);
+  --pinta-03: rgba(255, 255, 255, 0.08);
+  --pinta-hover: rgba(255, 255, 255, 0.1);
+
+  /* Reunat */
+  --reuna: rgba(255, 255, 255, 0.14);
+  --reuna-himmea: rgba(255, 255, 255, 0.07);
+  --reuna-heikko: rgba(255, 255, 255, 0.09);
+
+  /* Korostuksen läpikuultavat sävyt */
+  --korostus-tausta: rgba(34, 197, 94, 0.12);
+  --korostus-reuna: rgba(34, 197, 94, 0.35);
+
+  /* Pyöristykset */
+  --pyoristys-pieni: 0.5rem;
+  --pyoristys: 0.75rem;
+  --pyoristys-kortti: 1.25rem;
+  --pyoristys-pilleri: 999px;
+
+  /* Taustan gradientti, sama joka sivulla */
+  --tausta-gradientti: radial-gradient(ellipse at top, #16233b 0%, #0b1120 55%, #070b14 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/* Latausanimaatio suojatuille reiteille */
+.route-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #070b14;
+}
+
+.route-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(34, 197, 94, 0.2);
+  border-top-color: #22c55e;
+  border-radius: 50%;
+  animation: routeSpin 0.8s linear infinite;
+}
+
+@keyframes routeSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*-------------------------------------------------------------------------------------
+/* Jaetut sivupohjan ja yläpalkin tyylit, kaytossa admin-, diary- ja profiilisivuilla
+--------------------------------------------------------------------------------------*/
+/* Sama tumma pohja kaikilla kirjautuneilla sivuilla */
+.admin,
+.diary,
+.profile {
+  position: relative;
+  min-height: 100vh;
+  background: var(--tausta-gradientti);
+  overflow-x: hidden;
+}
+
+/* Taustan pehmeät hehkut */
+.admin-glow,
+.diary-glow,
+.profile-glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Sivun yläpalkki */
+.admin-header,
+.diary-header,
+.profile-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--reuna-himmea);
+}
+
+/* Logon korostettu osa */
+.admin-logo-accent,
+.diary-logo-accent,
+.profile-logo-accent {
+  background: linear-gradient(120deg, var(--vari-korostus) 0%, var(--vari-toissijainen) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Yläpalkin oikea reuna */
+.admin-header-right,
+.diary-header-right,
+.profile-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Kirjaudu ulos -painike */
+.admin-logout,
+.diary-logout,
+.profile-logout {
+  background: var(--pinta-02);
+  border: 1px solid var(--reuna);
+  color: var(--vari-teksti-himmea);
+  border-radius: var(--pyoristys-pilleri);
+  padding: 0.5rem 1.1rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Kirjaudu ulos -painike, hover */
+.admin-logout:hover,
+.diary-logout:hover,
+.profile-logout:hover {
+  background: var(--pinta-hover);
+  color: var(--vari-teksti);
+}
+
+/* Yläpalkin responsiivisuus, jaettu kaikille kirjautuneille sivuille */
+/* Kapealla näytöllä logo ylös ja navipainikkeet sen alle keskitettyyn riviin */
+@media (max-width: 640px) {
+  .admin-header,
+  .diary-header,
+  .profile-header {
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: 0.9rem 1.25rem;
+  }
+
+  .admin-header-right,
+  .diary-header-right,
+  .profile-header-right {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+}
+
+/* Kaikkein kapeimmalla näytöllä navipainikkeet pienemmiksi, jotta mahtuvat yhdelle riville */
+@media (max-width: 400px) {
+  .admin-header-right,
+  .diary-header-right,
+  .profile-header-right {
+    gap: 0.4rem;
+  }
+
+  .admin-back,
+  .admin-profile-link,
+  .admin-logout,
+  .diary-admin-link,
+  .diary-user-link,
+  .diary-logout,
+  .profile-back,
+  .profile-admin-link,
+  .profile-logout {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}

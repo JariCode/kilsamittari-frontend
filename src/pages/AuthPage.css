@@ -1,0 +1,294 @@
+/* Sama tumma pohja kuin etusivulla */
+.auth-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--tausta-gradientti);
+  overflow: hidden;
+  padding: 2rem 1.5rem;
+}
+
+/* Taustan pehmeät hehkut */
+.auth-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.auth-glow-1 {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.25) 0%, transparent 70%);
+  top: -180px;
+  right: -140px;
+  animation: authPulse 7s ease-in-out infinite;
+}
+
+.auth-glow-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.16) 0%, transparent 70%);
+  bottom: -160px;
+  left: -120px;
+  animation: authPulse 9s ease-in-out infinite reverse;
+}
+
+@keyframes authPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+}
+
+/* Piirtyvä askelpolku taustalla */
+.auth-path {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.18;
+}
+
+.auth-path-line {
+  stroke: var(--vari-korostus);
+  stroke-width: 2;
+  stroke-dasharray: 12 14;
+  stroke-linecap: round;
+  stroke-dashoffset: 2000;
+  animation: authDrawPath 3s ease-out forwards;
+}
+
+@keyframes authDrawPath {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Lomakekortti */
+.auth-card {
+  position: relative;
+  z-index: 1;
+  background: var(--pinta-01);
+  border: 1px solid var(--pinta-hover);
+  border-radius: 1.5rem;
+  padding: 2.75rem 2.25rem;
+  width: 100%;
+  max-width: 420px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  animation: authFadeUp 0.6s ease-out both;
+}
+
+@keyframes authFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo kortin ylälaidassa, vie takaisin etusivulle */
+.auth-logo {
+  display: inline-block;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--vari-teksti);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.75rem;
+}
+
+.auth-logo-accent {
+  background: linear-gradient(120deg, var(--vari-korostus) 0%, var(--vari-toissijainen) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.auth-title {
+  color: var(--vari-teksti);
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
+.auth-subtitle {
+  color: var(--vari-teksti-harmaa);
+  font-size: 0.95rem;
+  margin-bottom: 1.75rem;
+}
+
+/* Virheilmoitus */
+.auth-error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: var(--vari-vaara);
+  padding: 0.8rem 1rem;
+  border-radius: var(--pyoristys);
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  animation: authShake 0.35s ease-out;
+}
+
+@keyframes authShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.auth-label {
+  color: var(--vari-teksti-himmea);
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.auth-input {
+  background: var(--pinta-02);
+  border: 1px solid var(--reuna);
+  border-radius: var(--pyoristys);
+  padding: 0.8rem 1rem;
+  color: var(--vari-teksti);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: var(--vari-korostus);
+  background: var(--reuna-himmea);
+  box-shadow: 0 0 0 4px var(--korostus-tausta);
+}
+
+.auth-hint {
+  color: var(--vari-teksti-vaimea);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin-top: -0.4rem;
+}
+
+/* Salasanakentän kääre, nappi sijoitetaan kentän sisälle */
+.auth-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.auth-input-wrap .auth-input {
+  width: 100%;
+}
+
+/* Varataan tilaa napille kentän oikeaan reunaan */
+.auth-input-password {
+  padding-right: 3rem;
+}
+
+.auth-toggle {
+  position: absolute;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--vari-teksti-harmaa);
+  padding: 0.4rem;
+  border-radius: var(--pyoristys-pieni);
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.auth-toggle:hover {
+  color: var(--vari-korostus);
+  background: var(--reuna-himmea);
+}
+
+.auth-toggle:focus-visible {
+  outline: 2px solid var(--vari-korostus);
+  outline-offset: 2px;
+}
+
+.auth-submit {
+  background: linear-gradient(120deg, var(--vari-korostus) 0%, var(--vari-korostus-tumma) 100%);
+  color: #052e16;
+  border: none;
+  border-radius: var(--pyoristys-pilleri);
+  padding: 0.85rem 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 0.6rem;
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.2s ease;
+}
+
+.auth-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(34, 197, 94, 0.45);
+}
+
+.auth-submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.auth-switch {
+  color: var(--vari-teksti-harmaa);
+  font-size: 0.9rem;
+  margin-top: 1.75rem;
+  text-align: center;
+}
+
+.auth-switch a {
+  color: var(--vari-korostus-vaalea);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.auth-switch a:hover {
+  color: var(--vari-korostus);
+  text-decoration: underline;
+}
+
+/* Puhelin */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .auth-title {
+    font-size: 1.6rem;
+  }
+}

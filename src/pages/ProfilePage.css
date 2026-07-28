@@ -1,0 +1,410 @@
+.profile-glow-1 {
+  width: 460px;
+  height: 460px;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.16) 0%, transparent 70%);
+  top: -200px;
+  right: -140px;
+}
+
+.profile-glow-2 {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+  bottom: -160px;
+  left: -120px;
+}
+
+.profile-logo {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--vari-teksti);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.profile-back {
+  background: var(--pinta-02);
+  border: 1px solid var(--reuna);
+  color: var(--vari-teksti-himmea);
+  border-radius: var(--pyoristys-pilleri);
+  padding: 0.5rem 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.profile-admin-link {
+  background: var(--korostus-tausta);
+  border: 1px solid var(--korostus-reuna);
+  color: var(--vari-korostus-vaalea);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--pyoristys-pilleri);
+  transition: background 0.2s ease;
+}
+
+.profile-admin-link:hover {
+  background: rgba(34, 197, 94, 0.2);
+}
+
+.profile-user {
+  color: var(--vari-teksti-himmea);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.profile-back:hover {
+  background: var(--pinta-hover);
+  color: var(--vari-teksti);
+}
+
+.profile-main {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Kaksi saraketta, samaan tapaan kuin päiväkirjassa */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.profile-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile-title {
+  color: var(--vari-teksti);
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.profile-success {
+  background: var(--korostus-tausta);
+  border: 1px solid var(--korostus-reuna);
+  color: var(--vari-korostus-vaalea);
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--pyoristys);
+  font-size: 0.9rem;
+}
+
+.profile-error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: var(--vari-vaara);
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--pyoristys);
+  font-size: 0.9rem;
+}
+
+/* Kortti samoilla mitoilla kuin diary-card */
+.profile-card {
+  background: var(--pinta-01);
+  border: 1px solid var(--reuna-heikko);
+  border-radius: var(--pyoristys-kortti);
+  padding: 1.75rem;
+  backdrop-filter: blur(10px);
+}
+
+.profile-card-danger {
+  border-color: rgba(239, 68, 68, 0.25);
+  background: linear-gradient(
+    155deg,
+    rgba(239, 68, 68, 0.06) 0%,
+    var(--pinta-01) 55%
+  );
+}
+
+/* Otsikko samalla koolla kuin card-title */
+.profile-card-title {
+  color: var(--vari-teksti);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.profile-text {
+  color: var(--vari-teksti-harmaa);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin-bottom: 1.15rem;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+/* Label samalla koolla kuin entry-label */
+.profile-label {
+  color: var(--vari-teksti-himmea);
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Input samoilla mitoilla kuin entry-input */
+.profile-input {
+  width: 100%;
+  background: var(--pinta-02);
+  border: 1px solid var(--reuna);
+  border-radius: var(--pyoristys);
+  padding: 0.8rem 1rem;
+  color: var(--vari-teksti);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-input:focus {
+  outline: none;
+  border-color: var(--vari-korostus);
+  box-shadow: 0 0 0 4px var(--korostus-tausta);
+}
+
+.profile-hint {
+  color: var(--vari-teksti-vaimea);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin-top: -0.4rem;
+}
+
+/* Painike samoilla mitoilla kuin entry-submit */
+.profile-submit {
+  align-self: flex-start;
+  background: linear-gradient(120deg, var(--vari-korostus) 0%, var(--vari-korostus-tumma) 100%);
+  color: #052e16;
+  border: none;
+  border-radius: var(--pyoristys-pilleri);
+  padding: 0.85rem 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.profile-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(34, 197, 94, 0.42);
+}
+
+/* Tuontiavaimen näyttö */
+.profile-key-status {
+  color: var(--vari-teksti-harmaa);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.profile-key-box {
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 0.8rem;
+  padding: 1rem;
+  margin-bottom: 1.15rem;
+}
+
+.profile-key-warning {
+  color: var(--vari-korostus-vaalea);
+  font-size: 0.82rem;
+  margin-bottom: 0.7rem;
+}
+
+.profile-key-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.profile-key-value {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: var(--pyoristys-pieni);
+  padding: 0.6rem 0.8rem;
+  color: var(--vari-teksti);
+  font-size: 0.82rem;
+  font-family: monospace;
+  word-break: break-all;
+}
+
+.profile-copy {
+  background: var(--pinta-03);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: var(--vari-teksti);
+  border-radius: 0.6rem;
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.profile-copy:hover {
+  background: var(--reuna);
+}
+
+/* Ohjeet */
+.profile-instructions {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--pinta-03);
+}
+
+.profile-instructions-title {
+  color: var(--vari-teksti-himmea);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.9rem;
+}
+
+.profile-setting {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.profile-setting-label {
+  color: var(--vari-teksti-vaimea);
+  font-size: 0.78rem;
+}
+
+.profile-setting-value {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: var(--pyoristys-pieni);
+  padding: 0.55rem 0.8rem;
+  color: #e2e8f0;
+  font-size: 0.82rem;
+  font-family: monospace;
+  word-break: break-all;
+}
+
+/* Tuontiavaimen muistutus ohjeiden lopussa */
+.profile-key-note {
+  color: var(--vari-teksti-harmaa);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Vaaralliset toiminnot */
+.profile-danger-button {
+  align-self: flex-start;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: var(--vari-vaara);
+  border-radius: var(--pyoristys-pilleri);
+  padding: 0.85rem 1.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.profile-danger-button:hover {
+  background: rgba(239, 68, 68, 0.25);
+  color: #fecaca;
+}
+
+.profile-danger-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.profile-cancel {
+  background: var(--pinta-02);
+  border: 1px solid var(--reuna);
+  color: var(--vari-teksti-himmea);
+  border-radius: var(--pyoristys-pilleri);
+  padding: 0.85rem 1.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.profile-cancel:hover {
+  background: var(--pinta-hover);
+}
+
+/* Salasanakentän kääre ja näytä/piilota-nappi */
+.profile-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-input-wrap .profile-input {
+  width: 100%;
+}
+
+.profile-input-password {
+  padding-right: 3rem;
+}
+
+.profile-toggle {
+  position: absolute;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--vari-teksti-harmaa);
+  padding: 0.4rem;
+  border-radius: var(--pyoristys-pieni);
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.profile-toggle:hover {
+  color: var(--vari-korostus);
+  background: var(--reuna-himmea);
+}
+
+.profile-toggle:focus-visible {
+  outline: 2px solid var(--vari-korostus);
+  outline-offset: 2px;
+}
+
+/* Puhelin */
+@media (max-width: 640px) {
+  .profile-main {
+    padding: 1.5rem 1.25rem 3rem;
+  }
+
+  .profile-card {
+    padding: 1.25rem;
+  }
+
+  .profile-danger-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

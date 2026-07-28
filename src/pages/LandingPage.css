@@ -1,0 +1,312 @@
+/* Tumma pohja, vihreä korostusväri */
+.landing {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--tausta-gradientti);
+  overflow: hidden;
+  padding: 4rem 1.5rem;
+}
+
+/* Taustan pehmeät hehkut */
+.landing-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.landing-glow-1 {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.28) 0%, transparent 70%);
+  top: -160px;
+  right: -120px;
+  animation: pulse 7s ease-in-out infinite;
+}
+
+.landing-glow-2 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.18) 0%, transparent 70%);
+  bottom: -140px;
+  left: -100px;
+  animation: pulse 9s ease-in-out infinite reverse;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+}
+
+/* Piirtyvä askelpolku taustalla */
+.landing-path {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+.path-line {
+  stroke: var(--vari-korostus);
+  stroke-width: 2;
+  stroke-dasharray: 12 14;
+  stroke-linecap: round;
+  stroke-dashoffset: 2000;
+  animation: drawPath 3s ease-out forwards;
+}
+
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.landing-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 960px;
+  width: 100%;
+}
+
+/* Pieni merkki otsikon yllä */
+.landing-badge {
+  display: inline-block;
+  background: var(--korostus-tausta);
+  border: 1px solid var(--korostus-reuna);
+  color: var(--vari-korostus-vaalea);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border-radius: var(--pyoristys-pilleri);
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.6s ease-out both;
+}
+
+.landing-title {
+  font-size: clamp(2.75rem, 9vw, 5.5rem);
+  font-weight: 800;
+  color: var(--vari-teksti);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 1rem;
+  animation: fadeUp 0.6s ease-out 0.1s both;
+}
+
+.title-accent {
+  background: linear-gradient(120deg, var(--vari-korostus) 0%, var(--vari-toissijainen) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.landing-punchline {
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  color: var(--vari-teksti-harmaa);
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.6s ease-out 0.2s both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.landing-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+  animation: fadeUp 0.6s ease-out 0.3s both;
+}
+
+/* Kirjautumislinkki päänapin alla */
+.landing-login-hint {
+  color: var(--vari-teksti-harmaa);
+  font-size: 0.95rem;
+  margin-bottom: 4rem;
+  animation: fadeUp 0.6s ease-out 0.35s both;
+}
+
+.landing-login-hint a {
+  color: var(--vari-korostus-vaalea);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.landing-login-hint a:hover {
+  color: var(--vari-korostus);
+  text-decoration: underline;
+}
+
+.btn {
+  padding: 0.95rem 2.25rem;
+  border-radius: var(--pyoristys-pilleri);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(120deg, var(--vari-korostus) 0%, var(--vari-korostus-tumma) 100%);
+  color: #052e16;
+  box-shadow: 0 8px 28px var(--korostus-reuna);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 38px rgba(34, 197, 94, 0.5);
+}
+
+.btn-secondary {
+  background: var(--pinta-02);
+  color: var(--vari-teksti);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-3px);
+  background: var(--pinta-hover);
+}
+
+/* Ominaisuuskortit */
+.landing-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 4rem;
+  animation: fadeUp 0.6s ease-out 0.4s both;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--pinta-03);
+  border-radius: var(--pyoristys-kortti);
+  padding: 1.75rem 1.5rem;
+  text-align: left;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(34, 197, 94, 0.4);
+}
+
+.feature-icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.feature-title {
+  color: var(--vari-teksti);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.feature-text {
+  color: var(--vari-teksti-harmaa);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* Palkintopolku */
+.landing-trophies {
+  animation: fadeUp 0.6s ease-out 0.5s both;
+}
+
+.trophies-label {
+  color: var(--vari-teksti-vaimea);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.trophy-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.trophy-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.trophy-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--vari-korostus);
+  box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.15);
+}
+
+.trophy-dot-gold {
+  background: #facc15;
+  box-shadow: 0 0 0 5px rgba(250, 204, 21, 0.18);
+  animation: glowGold 2.5s ease-in-out infinite;
+}
+
+@keyframes glowGold {
+  0%, 100% {
+    box-shadow: 0 0 0 5px rgba(250, 204, 21, 0.18);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(250, 204, 21, 0.05);
+  }
+}
+
+.trophy-line {
+  width: 70px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(34, 197, 94, 0.5), rgba(34, 197, 94, 0.2));
+  margin: 0 0.5rem 1.75rem 0.5rem;
+}
+
+.trophy-km {
+  color: var(--vari-teksti-himmea);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.trophy-km-gold {
+  color: #facc15;
+}
+
+/* Puhelin */
+@media (max-width: 640px) {
+  .landing {
+    padding: 3rem 1.25rem;
+  }
+
+  .trophy-line {
+    width: 32px;
+  }
+}
