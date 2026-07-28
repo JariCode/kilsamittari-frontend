@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import apiFetch from '../api/apiClient.js';
+import TermsModal from '../components/TermsModal.jsx';
+import PrivacyModal from '../components/PrivacyModal.jsx';
 import './AuthPage.css';
 
 function RegisterPage() {
@@ -9,6 +11,8 @@ function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  // Kumpi laki-ikkuna on auki, tai null jos molemmat kiinni
+  const [avoinLaki, setAvoinLaki] = useState(null);
   const navigate = useNavigate();
 
   // Lomakkeen lähetys
@@ -148,7 +152,20 @@ function RegisterPage() {
         <p className="auth-switch">
           Onko sinulla jo tili? <Link to="/kirjaudu">Kirjaudu tästä</Link>
         </p>
+
+        <p className="legal-links">
+          <button type="button" onClick={() => setAvoinLaki('terms')}>
+            Käyttöehdot
+          </button>
+          <span className="legal-links-erotin">·</span>
+          <button type="button" onClick={() => setAvoinLaki('privacy')}>
+            Tietosuojaseloste
+          </button>
+        </p>
       </div>
+
+      {avoinLaki === 'terms' && <TermsModal onClose={() => setAvoinLaki(null)} />}
+      {avoinLaki === 'privacy' && <PrivacyModal onClose={() => setAvoinLaki(null)} />}
     </div>
   );
 }

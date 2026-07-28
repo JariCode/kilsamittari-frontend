@@ -1,0 +1,117 @@
+/* Käyttöehtojen ja tietosuojaselosteen ikkunoiden jaetut tyylit */
+
+.legal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 100;
+}
+
+.legal-modal {
+  position: relative;
+  background: #16233b;
+  border: 1px solid var(--reuna-heikko);
+  border-radius: var(--pyoristys-kortti);
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(34, 197, 94, 0.45) var(--pinta-02);
+}
+
+.legal-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.legal-modal::-webkit-scrollbar-track {
+  background: var(--pinta-02);
+  border-radius: var(--pyoristys-pilleri);
+}
+
+.legal-modal::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(34, 197, 94, 0.6) 0%, rgba(56, 189, 248, 0.5) 100%);
+  border-radius: var(--pyoristys-pilleri);
+}
+
+.legal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--pinta-02);
+  border: 1px solid var(--reuna);
+  color: var(--vari-teksti-himmea);
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--pyoristys-pilleri);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.legal-close:hover {
+  background: var(--pinta-hover);
+  color: var(--vari-teksti);
+}
+
+.legal-title {
+  color: var(--vari-teksti);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.legal-updated {
+  color: var(--vari-teksti-vaimea);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.legal-content h3 {
+  color: var(--vari-teksti);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.legal-content p {
+  color: var(--vari-teksti-himmea);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* Linkit sivujen alareunassa */
+.legal-links {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--vari-teksti-vaimea);
+}
+
+.legal-links button {
+  background: none;
+  border: none;
+  color: var(--vari-teksti-harmaa);
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.legal-links button:hover {
+  color: var(--vari-korostus-vaalea);
+}
+
+.legal-links-erotin {
+  margin: 0 0.5rem;
+}
