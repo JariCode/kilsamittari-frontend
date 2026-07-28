@@ -28,14 +28,14 @@ function PrivacyModal({ onClose }) {
           <h3>Rekisterinpitäjä</h3>
           <p>
             Kilsamittari on opiskelijaprojekti. Yhteyttä palveluun liittyvissä
-            tietosuoja-asioissa voi ottaa osoitteeseen jaricode@elisanet.fi.
+            tietosuoja-asioissa voi ottaa osoitteeseen jaricode@elisanet.fi. {/*Tähän oma sähköpostiosoite */}
           </p>
 
           <h3>Mitä tietoja kerätään</h3>
           <p>
             Käyttäjätunnus ja salasana suojattuna, ei koskaan selkokielisenä.
             Kävelymerkinnät eli päivämäärät ja kilometrit. Jos otat käyttöön
-            Terveys-tuonnin, tallennamme iPhonen Terveys-sovelluksesta tuodut
+            Terveys-tuonnin, tallennamme Terveys-sovelluksesta tuodut
             kävelytiedot samalla tavalla, sekä tuontiavaimen suojattuna.
             Lisäksi tallennamme viimeisimmän kirjautumisaikasi.
           </p>
