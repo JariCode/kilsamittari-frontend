@@ -14,6 +14,25 @@ function muotoileAika(iso) {
   return `${paiva}.${kuukausi}.${vuosi} ${tunti}.${minuutti}`;
 }
 
+// Muotoilee viimeisimmän kirjautumisen, tai viivan jos kirjautumista ei ole
+function muotoileKirjautuminen(iso) {
+  if (!iso) {
+    return '–';
+  }
+  return muotoileAika(iso);
+}
+
+// Kertoo onko tili ollut käyttämättä yli neljä kuukautta
+// Käyttämättömänä pidetään tiliä johon ei ole kirjauduttu neljään kuukauteen
+function onKayttamaton(iso) {
+  if (!iso) {
+    return false;
+  }
+  const neljaKuukauttaSitten = new Date();
+  neljaKuukauttaSitten.setMonth(neljaKuukauttaSitten.getMonth() - 4);
+  return new Date(iso) < neljaKuukauttaSitten;
+}
+
 // Muuntaa roolien tekniset nimet suomeksi lokia varten
 // Esimerkiksi "admin -> user" muuttuu muotoon "Ylläpitäjä -> Käyttäjä"
 function rooliSuomeksi(details) {
@@ -276,6 +295,7 @@ function AdminPage() {
                     <th>Käyttäjä</th>
                     <th>Rooli</th>
                     <th>Liittynyt</th>
+                    <th>Viimeksi kirjautunut</th>
                     <th className="admin-actions-head">Toiminnot</th>
                   </tr>
                 </thead>
@@ -302,6 +322,15 @@ function AdminPage() {
                           </span>
                         </td>
                         <td className="admin-date">{muotoileAika(k.createdAt)}</td>
+                        <td
+                          className={
+                            onKayttamaton(k.lastLogin)
+                              ? 'admin-date admin-date-inactive'
+                              : 'admin-date'
+                          }
+                        >
+                          {muotoileKirjautuminen(k.lastLogin)}
+                        </td>
                         <td className="admin-actions-cell">
                           {omaTili ? (
                             // Omalle tilille ei näytetä toimintoja, vain viiva

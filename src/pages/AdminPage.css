@@ -466,6 +466,11 @@
   background: rgba(56, 189, 248, 0.25);
 }
 
+/* Käyttämättömän tilin kirjautumisaika keltaisena */
+.admin-date-inactive {
+  color: #fbbf24;
+}
+
 /* Puhelin */
 @media (max-width: 640px) {
   .admin-main {
@@ -480,3 +485,4 @@
     flex-direction: column;
   }
 }
+
