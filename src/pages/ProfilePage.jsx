@@ -292,6 +292,14 @@ function ProfilePage() {
               <h2 className="profile-card-title">Vaihda salasana</h2>
 
               <form onSubmit={vaihdaSalasana} className="profile-form">
+                {/* Piilotettu käyttäjätunnus salasananhallintaa varten, parantaa saavutettavuutta */}
+                <input
+                  type="text"
+                  value={kayttaja ? kayttaja.username : ''}
+                  autoComplete="username"
+                  readOnly
+                  hidden
+                />
                 <label className="profile-label">
                   Nykyinen salasana
                   <div className="profile-input-wrap">
@@ -368,6 +376,14 @@ function ProfilePage() {
                 </button>
               ) : (
                 <form onSubmit={poistaTili} className="profile-form">
+                  {/* Piilotettu käyttäjätunnus salasananhallintaa varten, parantaa saavutettavuutta */}
+                  <input
+                    type="text"
+                    value={kayttaja ? kayttaja.username : ''}
+                    autoComplete="username"
+                    readOnly
+                    hidden
+                  />
                   <label className="profile-label">
                     Vahvista salasanalla
                     <div className="profile-input-wrap">
