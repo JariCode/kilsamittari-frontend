@@ -58,6 +58,8 @@ function lokiTeksti(loki) {
       return `${loki.actorUsername} muutti käyttäjän ${loki.targetUsername} roolia (${rooliSuomeksi(loki.details)})`;
     case 'delete_user':
       return `${loki.actorUsername} poisti käyttäjän ${loki.targetUsername}`;
+    case 'delete_self':
+      return `${loki.actorUsername} poisti oman tilinsä`;
     default:
       return loki.action;
   }
