@@ -193,27 +193,20 @@ function DiaryPage() {
 
               <form onSubmit={tallenna} className="entry-form">
                 <label className="entry-label">
-                  Päivämäärä
-                  <Flatpickr
-                    value={valittuPaiva}
-                    onChange={([pvm]) => setValittuPaiva(pvm)}
-                    options={{
-                      locale: Finnish,
-                      dateFormat: 'd.m.Y',
-                      maxDate: 'today'
-                    }}
-                    render={({ defaultValue }, ref) => (
-                      <input
-                        ref={ref}
-                        defaultValue={defaultValue}
-                        className="entry-input"
-                        readOnly
-                        placeholder="Valitse päivä"
-                      />
-                    )}
-                  />
-                </label>
-
+                Päivämäärä
+                <Flatpickr
+                  value={valittuPaiva}
+                  onChange={([pvm]) => setValittuPaiva(pvm)}
+                  options={{
+                    locale: Finnish,
+                    dateFormat: 'd.m.Y',
+                    maxDate: 'today',
+                    disableMobile: true
+                  }}
+                  className="entry-input"
+                  placeholder="Valitse päivä"
+                />
+              </label>
                 <label className="entry-label">
                   Kilometrit
                   <div className="entry-km-wrap">
