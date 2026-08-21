@@ -727,12 +727,17 @@ span.flatpickr-weekday {
   background: var(--pinta-02);
 }
 
+.numInputWrapper span.arrowUp,
+.numInputWrapper span.arrowDown {
+  border: none !important;
+}
+
 .numInputWrapper span.arrowUp::after {
-  border-bottom-color: var(--vari-teksti-harmaa);
+  border-bottom-color: #94a3b8 !important;
 }
 
 .numInputWrapper span.arrowDown::after {
-  border-top-color: var(--vari-teksti-harmaa);
+  border-top-color: #94a3b8 !important;
 }
 
 /* Puhelin */
