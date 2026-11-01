@@ -16,7 +16,7 @@ function PrivacyModal({ onClose }) {
         </button>
 
         <h2 className="legal-title">Tietosuojaseloste</h2>
-        <p className="legal-updated">Päivitetty 28.7.2026</p>
+        <p className="legal-updated">Päivitetty 1.11.2026</p>
 
         <div className="legal-content">
           <p>
@@ -60,10 +60,10 @@ function PrivacyModal({ onClose }) {
 
           <h3>Evästeet</h3>
           <p>
-            Palvelu käyttää yhtä teknistä evästettä, joka pitää sinut
-            kirjautuneena. Sitä ei pääse lukemaan sivuston ulkopuolelta, eikä
-            sitä käytetä seurantaan tai mainontaan. Sivustolla ei ole seuranta-
-            eikä mainosevästeitä.
+            Palvelu käyttää kahta välttämätöntä teknistä evästettä. Toinen
+            pitää sinut kirjautuneena ja toinen suojaa palvelun toimintoja
+            väärinkäytöksiltä. Evästeitä ei käytetä seurantaan, profilointiin
+            tai mainontaan. Sivustolla ei ole seuranta- eikä mainosevästeitä.
           </p>
 
           <h3>Tietojen säilytysaika</h3>
