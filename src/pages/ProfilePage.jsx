@@ -171,7 +171,7 @@ function ProfilePage() {
       await navigator.clipboard.writeText(uusiAvain);
       setAvainKopioitu(true);
       setTimeout(() => setAvainKopioitu(false), 2000);
-    } catch (err) {
+    } catch {
       setVirhe('Kopiointi ei onnistunut, kopioi käsin');
     }
   }

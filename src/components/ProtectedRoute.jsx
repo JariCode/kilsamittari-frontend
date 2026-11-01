@@ -12,7 +12,7 @@ function ProtectedRoute({ children }) {
       try {
         await apiFetch('/api/auth/me');
         setTila('kirjautunut');
-      } catch (err) {
+      } catch {
         setTila('ei-kirjautunut');
       }
     }
