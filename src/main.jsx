@@ -4,8 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 import './index.css';
 
-// Reitityksen juuri luetaan Viten base-arvosta, jotta toimii sekä paikallisesti että alapolussa
-// Kehityksessä tämä on tyhjä, tuotannossa /kilsamittari
+// Reitityksen juuri luetaan Viten base-arvosta
+// Sovellus on juuressa, joten arvo on tyhjä
 const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 ReactDOM.createRoot(document.getElementById('root')).render(
